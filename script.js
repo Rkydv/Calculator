@@ -5,6 +5,8 @@ console.log("hello");
 let btn=document.getElementsByTagName("button");
 let out=document.querySelector(".rslt");
 let curinp=' ';
+let curopr="";
+let result=null;
 
 
 function print(){
@@ -22,6 +24,16 @@ function print(){
                 {
                     curinp=curinp.slice(0,-1);
                 }
+                else if(rr.innertext=="+"||rr.innertext=="-"||rr.innertext=="*"||rr.innertext=="/"){
+                    curinp=rr.innertext;
+                    curopr=rr.innerText;
+
+                }
+                else if(rr.innerHTML=="=")
+                {
+                    curinp=eval(curinp);
+                    
+                }
                 else{
                 curinp+=rr.innerText;
 
@@ -36,34 +48,3 @@ function print(){
         }
 }
 print();
-
-// btn.addEventListener("click",()=>{
-//     print();
-// })
-
-
-// console.log(btn);
-// btn.addEventListener("click",()=>
-// {
-//         for(let bt of btn)
-//     {
-//         console.log(bt.innertext);
-//     }
-// })
-
-
-
-// btn.addEventListner("click",()=>{
-//     for(let bt of btn)
-//     {
-//         console.log(bt.innertext);
-//     }
-// })
-
-
-// btn.forEach(()=> {
-//     btn.addEventListener('click', function() {
-//         // Your event handling logic
-//     }
-//     );
-// })
